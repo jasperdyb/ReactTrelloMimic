@@ -9,14 +9,24 @@ const resolvers = {
     },
   },
   Mutation: {
-    post: (parent, args, context, info) => {
-      const newTodo = context.prisma.todo.create({
+    post: async (parent, args, context, info) => {
+      const newTodo = await context.prisma.todo.create({
         data: {
           name: args.name,
           finished: false,
         },
       });
       return newTodo;
+    },
+    updateTodo: async (parent, args, context, info) => {
+      const id = Number(args.id);
+      const updatedTodo = await context.prisma.todo.update({
+        where: { id: id },
+        data: {
+          name: args.name,
+        },
+      });
+      return updatedTodo;
     },
   },
 };
@@ -31,4 +41,6 @@ const server = new GraphQLServer({
   },
 });
 
-server.start(() => console.log(`Server is running on http://localhost:4000`));
+server.start(() =>
+  console.log(`GraphQL Server is running on http://localhost:4000`)
+);
