@@ -28,6 +28,13 @@ const resolvers = {
       });
       return updatedTodo;
     },
+    deleteTodo: async (parent, args, context, info) => {
+      const id = Number(args.id);
+      const deleteTodo = await context.prisma.todo.delete({
+        where: { id: id },
+      });
+      return deleteTodo;
+    },
   },
 };
 
