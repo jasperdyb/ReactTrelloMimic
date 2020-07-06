@@ -1,0 +1,17 @@
+type Query {
+  info: String!
+  list: [Todo!]!
+  todo(id: ID!): Todo
+}
+
+type Mutation {
+  post(name: String!): Todo!
+  updateTodo(id: ID!, name: String): Todo
+  deleteTodo(id: ID!): [Todo]
+}
+
+type Todo {
+  id: ID!
+  name: String!
+  finished: Boolean!
+}

@@ -1,0 +1,4 @@
+# Prisma Migrate lockfile v1
+
+20200706121242-create-todo
+20200706130621-add-finished-default
