@@ -6,8 +6,6 @@ type Query {
 
 type Mutation {
   post(name: String!): Todo!
-  updateTodo(id: ID!, name: String): Todo
-  deleteTodo(id: ID!): [Todo]
 }
 
 type Todo {

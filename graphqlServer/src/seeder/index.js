@@ -25,22 +25,16 @@ const todoItems = [
 
 //3
 async function main() {
-  // todoItems.forEach(async function (todo) {
-  //   const newTodo = await prisma.todo.create({
-  //     data: {
-  //       name: todo.name,
-  //     },
-  //   });
-  // });
+  await prisma.todo.deleteMany();
 
-  const newTodo = await prisma.todo.create({
-    data: {
-      name: "todo0",
-    },
-  });
-
-  const allTodo = await prisma.todo.findMany();
-  console.log(allTodo);
+  for (let i = 0; i < todoItems.length; i++) {
+    await prisma.todo.create({
+      data: {
+        name: todoItems[i].name,
+        finished: false,
+      },
+    });
+  }
 }
 
 //4
