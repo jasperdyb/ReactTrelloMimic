@@ -9,7 +9,7 @@ const resolvers = {
     },
   },
   Mutation: {
-    post: async (parent, args, context, info) => {
+    addTodo: async (parent, args, context, info) => {
       const newTodo = await context.prisma.todo.create({
         data: {
           name: args.name,

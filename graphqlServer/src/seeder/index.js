@@ -17,8 +17,7 @@ const todoItems = [
     finished: false,
   },
   {
-    name:
-      "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss",
+    name: "todo4",
     finished: false,
   },
 ];
