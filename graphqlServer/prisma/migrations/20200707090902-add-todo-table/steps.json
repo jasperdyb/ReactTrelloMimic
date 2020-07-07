@@ -115,6 +115,31 @@
       "field": "finished",
       "type": "Boolean",
       "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Todo",
+          "field": "finished"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Todo",
+          "field": "finished"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "value": "false"
     }
   ]
 }
