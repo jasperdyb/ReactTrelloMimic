@@ -26,13 +26,18 @@ const todoItems = [
 async function main() {
   await prisma.todo.deleteMany();
 
+  let order = 0;
+
   for (let i = 0; i < todoItems.length; i++) {
     await prisma.todo.create({
       data: {
         name: todoItems[i].name,
         finished: false,
+        order: order,
       },
     });
+
+    order += 1;
   }
 }
 

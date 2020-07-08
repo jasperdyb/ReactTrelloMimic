@@ -11,6 +11,7 @@ generator client {
 // 3
 model Todo {
   id          Int       @id @default(autoincrement())
+  order       Int       @default(autoincrement())
   createdAt   DateTime  @default(now())
   name        String
   finished    Boolean   @default(false)

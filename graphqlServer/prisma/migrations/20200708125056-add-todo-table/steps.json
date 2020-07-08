@@ -73,6 +73,13 @@
     {
       "tag": "CreateField",
       "model": "Todo",
+      "field": "order",
+      "type": "Int",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Todo",
       "field": "createdAt",
       "type": "DateTime",
       "arity": "Required"

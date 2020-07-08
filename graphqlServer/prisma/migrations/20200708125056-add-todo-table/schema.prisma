@@ -1,6 +1,6 @@
 datasource db {
   provider = "sqlite" 
-  url      = "file:./dev.db"
+  url = "***"
 }
 
 // 2
@@ -11,7 +11,7 @@ generator client {
 // 3
 model Todo {
   id          Int       @id @default(autoincrement())
-  order       Int       @default(autoincrement())
+  order       Int
   createdAt   DateTime  @default(now())
   name        String
   finished    Boolean   @default(false)
