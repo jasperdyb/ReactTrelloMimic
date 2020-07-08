@@ -5,7 +5,9 @@ const resolvers = {
   Query: {
     info: () => `React Todo`,
     list: async (parent, args, context) => {
-      return context.prisma.todo.findMany();
+      return context.prisma.todo.findMany({
+        orderBy: args.orderBy,
+      });
     },
   },
   Mutation: {
@@ -13,20 +15,36 @@ const resolvers = {
       const newTodo = await context.prisma.todo.create({
         data: {
           name: args.name,
+          order: args.order,
           finished: false,
         },
       });
       return newTodo;
     },
-    updateTodo: async (parent, args, context, info) => {
+    updateTodoName: async (parent, args, context, info) => {
       const id = Number(args.id);
-      const updatedTodo = await context.prisma.todo.update({
-        where: { id: id },
-        data: {
-          name: args.name,
-        },
+
+      if (args.name) {
+        const updatedTodo = await context.prisma.todo.update({
+          where: { id: id },
+          data: {
+            name: args.name,
+          },
+        });
+        return updatedTodo;
+      }
+    },
+    updateListOrder: async (parent, args, context, info) => {
+      await args.newOrder.forEach(async (todo) => {
+        await context.prisma.todo.update({
+          where: { id: Number(todo.id) },
+          data: {
+            order: Number(todo.order),
+          },
+        });
       });
-      return updatedTodo;
+
+      return context.prisma.todo.findMany();
     },
     deleteTodo: async (parent, args, context, info) => {
       const id = Number(args.id);

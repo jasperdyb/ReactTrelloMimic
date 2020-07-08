@@ -1,12 +1,13 @@
 type Query {
   info: String!
-  list: [Todo!]!
+  list(orderBy: OrderByInput): [Todo!]!
   todo(id: ID!): Todo
 }
 
 type Mutation {
-  addTodo(name: String!): Todo!
-  updateTodo(id: ID!, name: String): Todo
+  addTodo(name: String!, order: Int!): Todo!
+  updateTodoName(id: ID!, name: String!): Todo
+  updateListOrder(newOrder: [Order!]!): [Todo!]!
   deleteTodo(id: ID!): Todo
 }
 
@@ -14,4 +15,21 @@ type Todo {
   id: ID!
   name: String!
   finished: Boolean!
+  order: Int!
+}
+
+input Order {
+  id: ID!
+  order: Int!
+}
+
+input OrderByInput {
+  id: Sort
+  order: Sort
+  finished: Sort
+}
+
+enum Sort {
+  asc
+  desc
 }
