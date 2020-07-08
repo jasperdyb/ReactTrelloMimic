@@ -1,0 +1,4 @@
+/node_modules
+graphqlServer/prisma/dev.db
+graphqlServer/prisma/dev.db
+graphqlServer/prisma/Studio
