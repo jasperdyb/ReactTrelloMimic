@@ -1,6 +1,6 @@
 type Query {
   info: String!
-  list(orderBy: OrderByInput): [Todo!]!
+  list: [Todo!]!
   todo(id: ID!): Todo
 }
 
