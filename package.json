@@ -1,0 +1,22 @@
+{
+  "name": "ReactTodo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./graphqlServer/src/index.js",
+    "seed": "node ./graphqlServer/prisma/seeder/seed.js",
+    "clearDB": "node ./graphqlServer/prisma/seeder/clearDB.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^2.1.3",
+    "graphql-yoga": "^1.18.3"
+  },
+  "devDependencies": {
+    "@prisma/cli": "^2.2.0"
+  }
+}

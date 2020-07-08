@@ -1,0 +1,6 @@
+# Prisma Migrate lockfile v1
+
+20200708124604-add-todo
+20200708125056-add-todo-table
+20200708125700-make-order-autoincrease
+20200708133912-remove-auto-increament-from-order
