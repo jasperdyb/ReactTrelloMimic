@@ -9,7 +9,7 @@
     "seed": "node ./graphqlServer/prisma/seeder/seed.js",
     "clearDB": "node ./graphqlServer/prisma/seeder/clearDB.js",
     "prismaClient": "npx prisma generate --schema=./graphqlServer/prisma/schema.prisma",
-    "postinstall": "if test \"$NODE_ENV\" = \"production\" ; then node run prismaClient ; fi"
+    "postinstall": "if test \"$NODE_ENV\" = \"production\" ; then npm run prismaClient ; fi"
   },
   "keywords": [],
   "author": "",
