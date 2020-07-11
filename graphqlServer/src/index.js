@@ -1,6 +1,13 @@
 const { GraphQLServer } = require("graphql-yoga");
 const { PrismaClient } = require("@prisma/client");
 
+const options = {
+  port: process.env.PORT || 5000,
+  endpoint: "/graphql",
+  subscriptions: "/subscriptions",
+  playground: "/playground",
+};
+
 const resolvers = {
   Query: {
     info: () => `React Todo`,
@@ -69,6 +76,8 @@ const server = new GraphQLServer({
   },
 });
 
-server.start(() =>
-  console.log(`GraphQL Server is running on http://localhost:4000`)
+server.start(options, ({ port }) =>
+  console.log(
+    `Server started, listening on port ${port} for incoming requests.`
+  )
 );
