@@ -1,3 +1,5 @@
+console.log("RRRRRRRRRRRRRRRR");
+
 const { GraphQLServer } = require("graphql-yoga");
 const { PrismaClient } = require("@prisma/client");
 
