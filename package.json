@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./graphqlServer/src/index.js",
+    "start": "node graphqlServer/src/index.js",
     "seed": "node ./graphqlServer/prisma/seeder/seed.js",
     "clearDB": "node ./graphqlServer/prisma/seeder/clearDB.js",
     "prismaClient": "npx prisma generate --schema=./graphqlServer/prisma/schema.prisma"
