@@ -1,3 +1,6 @@
+const path = require("path");
+const express = require("express");
+
 const { GraphQLServer } = require("graphql-yoga");
 const { PrismaClient } = require("@prisma/client");
 
@@ -71,6 +74,13 @@ const server = new GraphQLServer({
   context: {
     prisma,
   },
+});
+
+server.express.get("/", (req, res, next) => {
+  // here you can use your way to get the path dir ..
+  const pathDir = path.join(__dirname, `./todo/build/index.html`);
+
+  res.sendFile(pathDir);
 });
 
 server.start(options, ({ port }) =>
