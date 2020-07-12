@@ -4,9 +4,9 @@ const express = require("express");
 const { GraphQLServer } = require("graphql-yoga");
 const { PrismaClient } = require("@prisma/client");
 
-const options = {
-  port: process.env.PORT || 5000,
-};
+// const options = {
+//   port: process.env.PORT || 5000,
+// };
 
 const resolvers = {
   Query: {
@@ -83,8 +83,4 @@ server.express.get("/", (req, res, next) => {
   res.sendFile(pathDir);
 });
 
-server.start(options, ({ port }) =>
-  console.log(
-    `Server started, listening on port ${port} for incoming requests.`
-  )
-);
+server.start(() => console.log(`Server started`));
