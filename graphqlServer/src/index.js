@@ -76,11 +76,11 @@ const server = new GraphQLServer({
   },
 });
 
-// server.express.get("/", (req, res, next) => {
-//   // here you can use your way to get the path dir ..
-//   const pathDir = path.join(__dirname, `./todo/build/index.html`);
+server.express.get("/", (req, res, next) => {
+  // here you can use your way to get the path dir ..
+  const pathDir = path.join(__dirname, `todo\build\index.html`);
 
-//   res.sendFile(pathDir);
-// });
+  res.sendFile(pathDir);
+});
 
 server.start(() => console.log(`Server started`));
