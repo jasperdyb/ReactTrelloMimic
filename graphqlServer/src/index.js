@@ -76,10 +76,10 @@ const server = new GraphQLServer({
   },
 });
 
-server.express.use(express.static(path.join(__dirname, `\todo\build`)));
+server.express.use(express.static(path.join(__dirname, `../../todo/build`)));
 
 server.express.get("/", (req, res, next) => {
-  res.sendFile(path.join(__dirname, `\todo\build`, "index.html"));
+  res.sendFile(path.join(__dirname, `../../todo/build`, "index.html"));
 });
 
 server.start(options, ({ port }) =>
