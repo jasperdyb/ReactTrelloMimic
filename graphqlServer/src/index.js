@@ -7,6 +7,7 @@ const { PrismaClient } = require("@prisma/client");
 const options = {
   port: process.env.PORT || 5000,
   endpoint: "/graphql",
+  playground: "/playground",
 };
 
 const resolvers = {
