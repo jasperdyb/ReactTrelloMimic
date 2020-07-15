@@ -2,6 +2,10 @@
 
 > Build trello-like todo list with React + Graphql + Prisma
 
+- Drag & drop to re-order the list
+- Edit todo in-place
+- Connect database through Graphql server & Prisma
+
 ---
 
 ### Setup

@@ -1,5 +1,14 @@
+const path = require("path");
+const express = require("express");
+
 const { GraphQLServer } = require("graphql-yoga");
 const { PrismaClient } = require("@prisma/client");
+
+const options = {
+  port: process.env.PORT || 5000,
+  endpoint: "/graphql",
+  playground: "/playground",
+};
 
 const resolvers = {
   Query: {
@@ -69,6 +78,14 @@ const server = new GraphQLServer({
   },
 });
 
-server.start(() =>
-  console.log(`GraphQL Server is running on http://localhost:4000`)
+server.express.use(express.static(path.join(__dirname, `../../todo/build`)));
+
+server.express.get("/", (req, res, next) => {
+  res.sendFile(path.join(__dirname, `../../todo/build`, "index.html"));
+});
+
+server.start(options, ({ port }) =>
+  console.log(
+    `Server started, listening on port ${port} for incoming requests.`
+  )
 );
